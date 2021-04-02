@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Text(
-                            "LOCAL EVENTS",
+                            "TuLink",
                             style: fadedTextStyle,
                           ),
                           Spacer(),
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: Text(
-                        "What's Up",
+                        "Let's Boogie",
                         style: whiteHeadingTextStyle,
                       ),
                     ),
