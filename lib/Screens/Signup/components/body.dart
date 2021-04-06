@@ -7,7 +7,7 @@ import 'package:localeventsapp/components/already_have_an_account_acheck.dart';
 import 'package:localeventsapp/components/rounded_button.dart';
 import 'package:localeventsapp/components/rounded_input_field.dart';
 import 'package:localeventsapp/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:localeventsapp/ui/homepage/home_page.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -23,9 +23,23 @@ class Body extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.03),
-            SvgPicture.asset(
-              "assets/icons/signup.svg",
-              height: size.height * 0.35,
+             Center(
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage('https://www.woolha.com/media/2020/03/eevee.png'),
+                  radius: 60.0,
+                ),
+              ),
+              Divider(
+                height: 60.0,
+                color: Colors.grey[800],
+              ),
+            RoundedInputField(
+              hintText: "First Name",
+              onChanged: (value) {},
+            ),
+            RoundedInputField(
+              hintText: "Last Name",
+              onChanged: (value) {},
             ),
             RoundedInputField(
               hintText: "Your Email",
@@ -53,23 +67,20 @@ class Body extends StatelessWidget {
               },
             ),
             OrDivider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SocalIcon(
-                  iconSrc: "assets/icons/facebook.svg",
-                  press: () {},
-                ),
-                SocalIcon(
-                  iconSrc: "assets/icons/twitter.svg",
-                  press: () {},
-                ),
-                SocalIcon(
-                  iconSrc: "assets/icons/google-plus.svg",
-                  press: () {},
-                ),
-              ],
-            )
+            RoundedButton(
+              text: "Enter as Guest",
+              textColor: Colors.white,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomePage();
+                    },
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
