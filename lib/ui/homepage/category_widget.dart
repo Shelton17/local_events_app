@@ -23,8 +23,8 @@ class CategoryWidget extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8),
-        width: 90,
-        height: 90,
+        width: 80,
+        height: 80,
         decoration: BoxDecoration(
           border: Border.all(color: isSelected ? Colors.white : Color(0x99FFFFFF), width: 3),
           borderRadius: BorderRadius.all(Radius.circular(16)),

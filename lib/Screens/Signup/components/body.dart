@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:localeventsapp/Screens/Login/login_screen.dart';
 import 'package:localeventsapp/Screens/Signup/components/background.dart';
 import 'package:localeventsapp/Screens/Signup/components/or_divider.dart';
-import 'package:localeventsapp/Screens/Signup/components/social_icon.dart';
 import 'package:localeventsapp/components/already_have_an_account_acheck.dart';
 import 'package:localeventsapp/components/rounded_button.dart';
 import 'package:localeventsapp/components/rounded_input_field.dart';

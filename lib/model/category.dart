@@ -39,10 +39,17 @@ final birthdayCategory = Category(
   icon: Icons.cake,
 );
 
+final cookOutCategory = Category(
+  categoryId: 5,
+  name: "Cook Out",
+  icon: Icons.restaurant
+);
+
 final categories = [
   allCategory,
   musicCategory,
   meetUpCategory,
   golfCategory,
   birthdayCategory,
+  cookOutCategory,
 ];
