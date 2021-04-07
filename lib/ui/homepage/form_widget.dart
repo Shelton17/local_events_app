@@ -22,7 +22,7 @@ class _FormPageState extends State<FormPage> {
   Widget _buildName() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: 'Name',
+          labelText: 'Event Name',
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))),
       validator: (String value) {
@@ -69,24 +69,6 @@ class _FormPageState extends State<FormPage> {
       },
       onSaved: (String value) {
         _description = value;
-      },
-    );
-  }
-
-  Widget _buildEmail() {
-    return TextFormField(
-      decoration: InputDecoration(
-          labelText: 'Email',
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Email is required';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _email = value;
       },
     );
   }
@@ -176,8 +158,6 @@ class _FormPageState extends State<FormPage> {
               _buildLocation(),
               SizedBox(height: 10),
               _buildDescription(),
-              SizedBox(height: 10),
-              _buildEmail(),
               SizedBox(height: 10),
               Row(
                 children: [

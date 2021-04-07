@@ -100,6 +100,13 @@ class HomePage extends StatelessWidget {
                         elevation: 2,
                        ),
                     ),
+                    ElevatedButton(
+                  child: Text('Sign Out',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      )),
+                  onPressed: () {}),
                   ],
                 ),
               ),
