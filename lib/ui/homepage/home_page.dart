@@ -56,12 +56,13 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               for (final category in categories)
-                                CategoryWidget(category: category)
+                                CategoryWidget(category: category),
+                         
                             ],
                           ),
                         ),
                       ),
-                    ),
+                    ),      
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Consumer<AppState>(

@@ -16,13 +16,13 @@ class EventWidget extends StatelessWidget {
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24))),
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.all(
-                Radius.circular(30),
+                Radius.circular(20),
               ),
               child: Image.asset(
                 event.imagePath,

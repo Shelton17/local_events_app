@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:date_time_picker/date_time_picker.dart';
+
 
 class FormPage extends StatefulWidget {
   @override
@@ -12,6 +15,7 @@ class _FormPageState extends State<FormPage> {
   String _email;
   String _categpry;
   String _guests;
+  String _date;
 
   final GlobalKey<_FormPageState> _formKey = GlobalKey<_FormPageState>();
 
@@ -123,7 +127,36 @@ class _FormPageState extends State<FormPage> {
   }
 
   Widget _buildGuests() {
+    return TextFormField(
+      decoration: InputDecoration(
+          labelText: 'Number of Guests',
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))),
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Number is required';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _email = value;
+      },
+    );
+  }
+
+  Widget _buildDate() {
+    return DateTimePicker(
+    initialValue: '',
+    firstDate: DateTime(2000),
+    lastDate: DateTime(2100),
+    dateLabelText: 'Date',
+    onChanged: (val) => print(val),
+    validator: (val) {
+    print(val);
     return null;
+  },
+  onSaved: (val) => print(val),
+);
   }
 
   @override
@@ -146,7 +179,19 @@ class _FormPageState extends State<FormPage> {
               SizedBox(height: 10),
               _buildEmail(),
               SizedBox(height: 10),
-              Container(width: 100, child: _buildCategory()),
+              Row(
+                children: [
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(width: 100, child: _buildCategory()),
+                  ),
+                  Spacer(),
+                  Align(
+                    alignment: Alignment.bottomRight ,
+                    child: Container(width: 100, child: _buildDate()),
+                    )
+                ],
+              ),
               //_buildGuests(),
               SizedBox(height: 10),
 
