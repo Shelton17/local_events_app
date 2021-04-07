@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "243556791519",
+    "firebase_url": "https://tulink-default-rtdb.firebaseio.com",
+    "project_id": "tulink",
+    "storage_bucket": "tulink.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243556791519:android:fb8f43fc3b4e5591e6e56a",
+        "android_client_info": {
+          "package_name": "com.example.localeventsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243556791519-7b30ds5kmt292geo229g421i0n4ulgq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDERWuMQt5bjONCZ02K6ueg-hJ2QaXM_xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243556791519-7b30ds5kmt292geo229g421i0n4ulgq1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

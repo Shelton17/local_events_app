@@ -6,6 +6,11 @@ import 'package:localeventsapp/components/rounded_button.dart';
 import 'package:localeventsapp/components/rounded_input_field.dart';
 import 'package:localeventsapp/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import '../../../authentication_service.dart';
+
+final TextEditingController emailController = TextEditingController();
+final TextEditingController passwordController = TextEditingController();
 
 class Body extends StatelessWidget {
   const Body({
@@ -30,18 +35,30 @@ class Body extends StatelessWidget {
               height: size.height * 0.35,
             ),
             SizedBox(height: size.height * 0.03),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {},
+            TextField(
+              controller: emailController,
+              decoration: InputDecoration(
+                labelText: "Email",
+              ),
             ),
-            RoundedPasswordField(
-              onChanged: (value) {},
+            TextField(
+              controller: passwordController,
+              enableSuggestions: false,
+              autocorrect: false,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+              ),
             ),
-            RoundedButton(
-              text: "LOGIN",
-              press: () {},
+            RaisedButton(
+              onPressed: () {
+                context.read<AuthenticationService>().signIn(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                );
+              },
+              child: Text("Sign in"),
             ),
-            SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               press: () {
                 Navigator.push(

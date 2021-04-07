@@ -7,6 +7,7 @@ import 'package:localeventsapp/ui/homepage/form_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../app_state.dart';
+import '../../authentication_service.dart';
 import 'category_widget.dart';
 import 'event_widget.dart';
 import 'home_page_background.dart';
@@ -106,7 +107,9 @@ class HomePage extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 16,
                       )),
-                  onPressed: () {}),
+                  onPressed: () {
+                    context.read<AuthenticationService>().signOut();
+                  }),
                   ],
                 ),
               ),
