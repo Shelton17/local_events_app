@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:localeventsapp/Screens/Login/components/background.dart';
 import 'package:localeventsapp/Screens/Signup/signup_screen.dart';
@@ -6,6 +7,7 @@ import 'package:localeventsapp/components/rounded_button.dart';
 import 'package:localeventsapp/components/rounded_input_field.dart';
 import 'package:localeventsapp/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:localeventsapp/ui/homepage/home_page.dart';
 import 'package:provider/provider.dart';
 import '../../../authentication_service.dart';
 
@@ -58,18 +60,6 @@ class Body extends StatelessWidget {
                 );
               },
               child: Text("Sign in"),
-            ),
-            AlreadyHaveAnAccountCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
-              },
             ),
           ],
         ),

@@ -7,7 +7,7 @@ import 'ui/homepage/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
   if(firebaseUser != null){
   return HomePage();
   }
-  return LoginScreen();
+  return WelcomeScreen();
 
   }
   }

@@ -1,7 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:localeventsapp/Screens/Login/components/body.dart';
+import 'package:localeventsapp/Screens/Signup/components/body.dart';
+import 'model/Firebase_user.dart';
+import 'Screens/Login/login_screen.dart';
+
 
 class AuthenticationService{
+
   final FirebaseAuth firebaseAuth;
 
   AuthenticationService(this.firebaseAuth);
@@ -14,18 +22,33 @@ class AuthenticationService{
 
   Future<String> signIn({String email, String password}) async{
     try{
-      await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      await firebaseAuth.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text);
       return "Signed In!";
     } on FirebaseAuthException catch(e) {
       return e.message;
     }
   }
-  Future<String> signUp({String email, String password}) async{
+  Future<String> signUp({String email, String password, String username}) async{
     try{
-      await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      await Firebase.initializeApp();
+      UserCredential user = await firebaseAuth.createUserWithEmailAndPassword(
+          email: signupEmailController.text,
+          password: signupPasswordController.text);
+
+      User updateUser = FirebaseAuth.instance.currentUser;
+      updateUser.updateProfile(displayName: username);
+      userSetup(signupUsernameController.text);
+
       return "Signed Up!";
+
     } on FirebaseAuthException catch(e) {
-      return e.message;
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
     }
   }
 }

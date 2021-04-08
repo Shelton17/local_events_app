@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:localeventsapp/model/category.dart';
 import 'package:localeventsapp/model/event.dart';
@@ -13,6 +14,7 @@ import 'event_widget.dart';
 import 'home_page_background.dart';
 
 class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
