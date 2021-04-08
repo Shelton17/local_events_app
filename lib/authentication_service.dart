@@ -39,6 +39,7 @@ class AuthenticationService{
 
       User updateUser = FirebaseAuth.instance.currentUser;
       updateUser.updateProfile(displayName: username);
+
       userSetup(signupUsernameController.text);
 
       return "Signed Up!";

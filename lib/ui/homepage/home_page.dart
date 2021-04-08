@@ -7,7 +7,6 @@ import 'package:localeventsapp/styleguide.dart';
 import 'package:localeventsapp/ui/event_details/event_details_page.dart';
 import 'package:localeventsapp/ui/homepage/form_widget.dart';
 import 'package:provider/provider.dart';
-
 import '../../app_state.dart';
 import '../../authentication_service.dart';
 import 'category_widget.dart';
@@ -78,12 +77,12 @@ class HomePage extends StatelessWidget {
                             children: <Widget>[
                               for (final category in categories)
                                 CategoryWidget(category: category),
-                         
+
                             ],
                           ),
                         ),
                       ),
-                    ),      
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Consumer<AppState>(
@@ -138,6 +137,8 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 class CircularButton extends StatelessWidget {
@@ -164,6 +165,8 @@ class CircularButton extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
