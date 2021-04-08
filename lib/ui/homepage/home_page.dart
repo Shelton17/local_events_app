@@ -22,7 +22,6 @@ class HomePage extends StatelessWidget {
             HomePageBackground(
               screenHeight: MediaQuery.of(context).size.height,
             ),
-            
             SafeArea(
               child: SingleChildScrollView(
                 child: Column(
@@ -43,7 +42,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: Text(
-                        "Let's Boogie",
+                        "Let's Mingle",
                         style: whiteHeadingTextStyle,
                       ),
                     ),
@@ -88,17 +87,16 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                       child: FloatingActionButton.extended(
-                        onPressed: () {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => FormPage()));
-                        },
-                        label: Text('Create'),
-                        icon: Icon(Icons.create),
-                        elevation: 2,
-                       ),
+                    FloatingActionButton.extended(
+                     onPressed: () {
+                       Navigator.push(context,
+                       MaterialPageRoute(builder: (context) => FormPage()));
+                     },
+                     label: Text('Create'),
+                     icon: Icon(Icons.create),
+                     elevation: 2,
+                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                     backgroundColor: Color(0xFF6F35A5),
                     ),
                     ElevatedButton(
                   child: Text('Sign Out',

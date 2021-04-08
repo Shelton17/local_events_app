@@ -128,17 +128,21 @@ class _FormPageState extends State<FormPage> {
 
   Widget _buildDate() {
     return DateTimePicker(
-    initialValue: '',
+    type: DateTimePickerType.dateTimeSeparate,
+    dateMask: 'd MMM, yyyy',
+    initialValue: DateTime.now().toString(),
     firstDate: DateTime(2000),
     lastDate: DateTime(2100),
+    icon: Icon(Icons.event),
     dateLabelText: 'Date',
+    timeLabelText: "Time",
     onChanged: (val) => print(val),
     validator: (val) {
-    print(val);
-    return null;
-  },
-  onSaved: (val) => print(val),
-);
+      print(val);
+      return null;
+    },
+    onSaved: (val) => print(val),
+  );
   }
 
   @override
@@ -168,8 +172,8 @@ class _FormPageState extends State<FormPage> {
                   Spacer(),
                   Align(
                     alignment: Alignment.bottomRight ,
-                    child: Container(width: 100, child: _buildDate()),
-                    )
+                    child: Container(width: 200, child: _buildDate()),
+                    ),
                 ],
               ),
               //_buildGuests(),

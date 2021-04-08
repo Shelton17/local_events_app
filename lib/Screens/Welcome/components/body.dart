@@ -56,7 +56,7 @@ class Body extends StatelessWidget {
               },
             ),
             RoundedButton(
-              text: "SKIP",
+              text: "CONTINUE AS GUEST >",
               color: kPrimaryLightColor,
               textColor: Colors.black,
               press: () {
