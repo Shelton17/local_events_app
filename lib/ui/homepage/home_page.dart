@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:localeventsapp/model/category.dart';
@@ -12,6 +13,24 @@ import '../../authentication_service.dart';
 import 'category_widget.dart';
 import 'event_widget.dart';
 import 'home_page_background.dart';
+
+CollectionReference users = FirebaseFirestore.instance.collection("Users");
+FirebaseAuth auth =  FirebaseAuth.instance;
+String uid = auth.currentUser.uid.toString();
+String docID = users.doc(uid).toString();
+
+// void retrieveUsername() async{
+//   DocumentReference documentReference = users.doc(uid);
+//   documentReference.get().then((datasnapshot) {
+//     if (datasnapshot.exists) {
+//       print(datasnapshot.data()['displayName'].toString(););
+//     }
+//     else{
+//       print("No such user");
+//     }
+//   );
+// }
+
 
 class HomePage extends StatelessWidget {
 
@@ -145,3 +164,6 @@ class CircularButton extends StatelessWidget {
     );
   }
 }
+
+
+
