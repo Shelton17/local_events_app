@@ -42,14 +42,20 @@ class Body extends StatelessWidget {
               controller: signupUsernameController,
               decoration: InputDecoration(
                 labelText: "Username",
+                border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
+            SizedBox(height: 12,),
             TextField(
               controller: signupEmailController,
               decoration: InputDecoration(
                 labelText: "Email",
+                border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
+            SizedBox(height: 12,),
             TextField(
               controller: signupPasswordController,
               enableSuggestions: false,
@@ -57,9 +63,12 @@ class Body extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
+                border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
-            RaisedButton(
+            SizedBox(height: 12,),
+            ElevatedButton(
               onPressed: () {
                 context.read<AuthenticationService>().signUp(
                   email: signupEmailController.text.trim(),

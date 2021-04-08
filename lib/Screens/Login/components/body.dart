@@ -41,8 +41,11 @@ class Body extends StatelessWidget {
               controller: emailController,
               decoration: InputDecoration(
                 labelText: "Email",
+                border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
+            SizedBox(height:10.0),
             TextField(
               controller: passwordController,
               enableSuggestions: false,
@@ -50,6 +53,8 @@ class Body extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
+                border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
             RaisedButton(
