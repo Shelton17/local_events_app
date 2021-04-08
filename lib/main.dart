@@ -39,8 +39,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//test message
-
   class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
