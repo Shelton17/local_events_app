@@ -7,6 +7,12 @@ import 'package:localeventsapp/components/rounded_button.dart';
 import 'package:localeventsapp/components/rounded_input_field.dart';
 import 'package:localeventsapp/components/rounded_password_field.dart';
 import 'package:localeventsapp/ui/homepage/home_page.dart';
+import 'package:provider/provider.dart';
+import '../../../authentication_service.dart';
+
+final TextEditingController signupEmailController = TextEditingController();
+final TextEditingController signupPasswordController = TextEditingController();
+final TextEditingController signupUsernameController = TextEditingController();
 
 class Body extends StatelessWidget {
   @override
@@ -32,24 +38,36 @@ class Body extends StatelessWidget {
                 height: 60.0,
                 color: Colors.grey[800],
               ),
-            RoundedInputField(
-              hintText: "First Name",
-              onChanged: (value) {},
+            TextField(
+              controller: signupUsernameController,
+              decoration: InputDecoration(
+                labelText: "Username",
+              ),
             ),
-            RoundedInputField(
-              hintText: "Last Name",
-              onChanged: (value) {},
+            TextField(
+              controller: signupEmailController,
+              decoration: InputDecoration(
+                labelText: "Email",
+              ),
             ),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {},
+            TextField(
+              controller: signupPasswordController,
+              enableSuggestions: false,
+              autocorrect: false,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+              ),
             ),
-            RoundedPasswordField(
-              onChanged: (value) {},
-            ),
-            RoundedButton(
-              text: "SIGN UP",
-              press: () {},
+            RaisedButton(
+              onPressed: () {
+                context.read<AuthenticationService>().signUp(
+                  email: signupEmailController.text.trim(),
+                  password: signupPasswordController.text.trim(),
+                );
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              child: Text("Sign Up"),
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
