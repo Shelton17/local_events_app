@@ -28,6 +28,7 @@ class AuthenticationService{
       return e.message;
     }
   }
+
   // ignore: missing_return
   Future<String> signUp({String email, String password, String username}) async{
     try{
