@@ -3,10 +3,6 @@ import 'package:localeventsapp/Screens/Login/login_screen.dart';
 import 'package:localeventsapp/Screens/Signup/components/background.dart';
 import 'package:localeventsapp/Screens/Signup/components/or_divider.dart';
 import 'package:localeventsapp/components/already_have_an_account_acheck.dart';
-import 'package:localeventsapp/components/rounded_button.dart';
-import 'package:localeventsapp/components/rounded_input_field.dart';
-import 'package:localeventsapp/components/rounded_password_field.dart';
-import 'package:localeventsapp/ui/homepage/home_page.dart';
 import 'package:provider/provider.dart';
 import '../../../authentication_service.dart';
 
@@ -93,20 +89,20 @@ class Body extends StatelessWidget {
               },
             ),
             OrDivider(),
-            RoundedButton(
-              text: "Enter as Guest",
-              textColor: Colors.white,
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return HomePage();
-                    },
-                  ),
-                );
-              },
-            ),
+            // RoundedButton(
+            //   text: "Enter as Guest",
+            //   textColor: Colors.white,
+            //   press: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) {
+            //           return HomePage();
+            //         },
+            //       ),
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),

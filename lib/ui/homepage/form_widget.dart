@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:localeventsapp/events_services.dart';
-import 'package:localeventsapp/model/Firebase_eventID.dart';
+import 'package:localeventsapp/ui/homepage/home_page.dart';
 import 'package:provider/provider.dart';
 
 CollectionReference userEvents = FirebaseFirestore.instance.collection("Events");
 FirebaseAuth auth =  FirebaseAuth.instance;
 String uid = auth.currentUser.uid.toString();
+
+final TextEditingController eventNameController = TextEditingController();
+final TextEditingController locationController = TextEditingController();
+final TextEditingController descriptionController = TextEditingController();
+final TextEditingController creatorController = TextEditingController();
 
 
 class FormPage extends StatefulWidget {
@@ -18,14 +23,8 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  
-  final TextEditingController eventNameController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController creatorController = TextEditingController();
   String categoryID;
   int dateTime;
-  // final TextEditingController dateController = TextEditingController();
 
   final GlobalKey<_FormPageState> _formKey = GlobalKey<_FormPageState>();
 
@@ -111,26 +110,26 @@ class _FormPageState extends State<FormPage> {
     );
   }
 
-  // Widget _buildDate() {
-  //   DateTime currentDate = DateTime.now();
-  //   DateTimePicker(
-  //   type: DateTimePickerType.dateTimeSeparate,
-  //   dateMask: 'd MMM, yyyy',
-  //   initialValue: DateTime.now().toString(),
-  //   firstDate: DateTime(2000),
-  //   lastDate: DateTime(2100),
-  //   icon: Icon(Icons.event),
-  //   dateLabelText: 'Date',
-  //   timeLabelText: "Time",
-  //   onChanged:
-  //       (val) => print(val),
-  //   validator: (val) {
-  //     print(val);
-  //     return null;
-  //   },
-  //   onSaved: (val) => print(val),
-  // );
-  // }
+  Widget _buildDate() {
+    // DateTime currentDate = DateTime.now();
+    DateTimePicker(
+    type: DateTimePickerType.dateTimeSeparate,
+    dateMask: 'd MMM, yyyy',
+    initialValue: DateTime.now().toString(),
+    firstDate: DateTime(2000),
+    lastDate: DateTime(2100),
+    icon: Icon(Icons.event),
+    dateLabelText: 'Date',
+    timeLabelText: "Time",
+    onChanged:
+        (val) => print(val),
+    validator: (val) {
+      print(val);
+      return null;
+    },
+    onSaved: (val) => print(val),
+  );
+  }
 
   // Widget _buildDate(BuildContext context) {
   //   return Scaffold(
@@ -185,10 +184,10 @@ class _FormPageState extends State<FormPage> {
                     child: Container(width:100, child: _buildCategory()),
                   ),
                   Spacer(),
-                  // Align(
-                  //   alignment: Alignment.bottomRight ,
-                  //   child: Container(width: 200, child: _buildDate(context)),
-                  //   ),
+                  Align(
+                    alignment: Alignment.bottomRight ,
+                    child: Container(width: 200, child: _buildDate()),
+                    ),
                 ],
               ),
               //_buildGuests(),
@@ -201,14 +200,19 @@ class _FormPageState extends State<FormPage> {
                         fontSize: 16,
                       )),
                   onPressed: () {
-                    context.read<EventsServices>().addEvent(
+                    context.read<EventsService>().addEvent(
+                      // eventID: eventID,
                       eventName: eventNameController.text.trim(),
                       location: locationController.text.trim(),
                       description: descriptionController.text.trim(),
                       category: categoryID.trim(),
-                      // dateTime: dateTime,
                       creatorUID: uid,
                     );
+
+                    eventNameController.clear();
+                    locationController.clear();
+                    descriptionController.clear();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
 
                   }),
             ],

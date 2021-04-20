@@ -1,11 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:localeventsapp/Screens/Login/components/body.dart';
 import 'package:localeventsapp/Screens/Signup/components/body.dart';
 import 'model/Firebase_user.dart';
-import 'Screens/Login/login_screen.dart';
 
 
 class AuthenticationService{
@@ -16,6 +13,7 @@ class AuthenticationService{
 
   Stream<User> get authStateChanges => firebaseAuth.authStateChanges();
 
+  // ignore: missing_return
   Future<String> signOut() async{
     await firebaseAuth.signOut();
   }
@@ -30,6 +28,7 @@ class AuthenticationService{
       return e.message;
     }
   }
+  // ignore: missing_return
   Future<String> signUp({String email, String password, String username}) async{
     try{
       await Firebase.initializeApp();

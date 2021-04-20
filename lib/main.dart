@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:localeventsapp/Screens/Login/login_screen.dart';
 import 'package:localeventsapp/Screens/Welcome/welcome_screen.dart';
+import 'package:localeventsapp/events_services.dart';
 import 'package:provider/provider.dart';
 import 'authentication_service.dart';
 import 'ui/homepage/home_page.dart';
@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<AuthenticationService>(
           create: (_) => AuthenticationService(FirebaseAuth.instance),
+        ),
+
+        Provider<EventsService>(
+          create: (_)=> EventsService(),
         ),
 
         StreamProvider(

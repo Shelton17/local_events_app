@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:localeventsapp/Screens/Login/login_screen.dart';
 import 'package:localeventsapp/model/category.dart';
 import 'package:localeventsapp/model/event.dart';
 import 'package:localeventsapp/styleguide.dart';
@@ -16,20 +17,16 @@ import 'home_page_background.dart';
 CollectionReference users = FirebaseFirestore.instance.collection("Users");
 FirebaseAuth auth =  FirebaseAuth.instance;
 String uid = auth.currentUser.uid.toString();
-String docID = users.doc(uid).toString();
 
-// void retrieveUsername() async{
+// String getUsername(String uid) {
+//   String username;
 //   DocumentReference documentReference = users.doc(uid);
-//   documentReference.get().then((datasnapshot) {
-//     if (datasnapshot.exists) {
-//       print(datasnapshot.data()['displayName'].toString(););
-//     }
-//     else{
-//       print("No such user");
-//     }
-//   );
+//   documentReference.get().then((snapshot) {
+//     username = snapshot.data()['displayName'].toString();
+//     print("Username is " + username);
+//   });
+//   return username;
 // }
-//
 
 class HomePage extends StatelessWidget {
 
@@ -63,7 +60,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: Text(
-                        "Let's Mingle",
+                        "Welcome!",
                         style: whiteHeadingTextStyle,
                       ),
                     ),
@@ -127,6 +124,7 @@ class HomePage extends StatelessWidget {
                       )),
                   onPressed: () {
                     context.read<AuthenticationService>().signOut();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
                   }),
                   ],
                 ),

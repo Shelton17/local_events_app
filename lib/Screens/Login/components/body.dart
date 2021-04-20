@@ -1,11 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:localeventsapp/Screens/Login/components/background.dart';
-import 'package:localeventsapp/Screens/Signup/signup_screen.dart';
-import 'package:localeventsapp/components/already_have_an_account_acheck.dart';
-import 'package:localeventsapp/components/rounded_button.dart';
-import 'package:localeventsapp/components/rounded_input_field.dart';
-import 'package:localeventsapp/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:localeventsapp/ui/homepage/home_page.dart';
 import 'package:provider/provider.dart';
@@ -57,12 +51,13 @@ class Body extends StatelessWidget {
               OutlineInputBorder(borderRadius: BorderRadius.circular(15.0))
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 context.read<AuthenticationService>().signIn(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),
                 );
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
               },
               child: Text("Sign in"),
             ),

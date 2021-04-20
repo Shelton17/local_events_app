@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future<void> eventSetup(String eventID, String eventName, String location, String description, String category, String creatorUID) async{
+Future<void> eventSetup(String eventName, String location, String description, String category, String creatorUID) async{
 
   CollectionReference events = FirebaseFirestore.instance.collection("Events");
 
-  events.add({
+  DocumentReference eventDocID = events.doc();
+  String eventID = eventDocID.id;
+
+  events.doc(eventID).set({
     'eventID': eventID,
     'eventName': eventName,
     'location': location,
